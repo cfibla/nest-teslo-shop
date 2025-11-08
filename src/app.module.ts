@@ -18,6 +18,7 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
 
     TypeOrmModule.forRoot({
       ssl: true,
+      sslmode: 'require',
       type: 'postgres',
       host: 'ep-wild-darkness-a9dkjzli-pooler.gwc.azure.neon.tech',
       port: 5432,
