@@ -17,14 +17,18 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
     ConfigModule.forRoot(),
 
     TypeOrmModule.forRoot({
-      ssl: true,
-      sslmode: 'require',
+      ssl: process.env.STAGE === 'prod',
+      extra: {
+        ssl: process.env.STAGE === 'prod'
+              ? { rejectUnauthorized: false }
+              : null,
+      },
       type: 'postgres',
-      host: 'ep-wild-darkness-a9dkjzli-pooler.gwc.azure.neon.tech',
-      port: 5432,
-      database: 'neondb',
-      username: 'neondb_owner',
-      password: 'npg_PatYxKO2Z1XT',
+      host: process.env.DB_HOST,
+      port: +process.env.DB_PORT,
+      database: process.env.DB_NAME,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,      
       autoLoadEntities: true,
       synchronize: true,
     }),
