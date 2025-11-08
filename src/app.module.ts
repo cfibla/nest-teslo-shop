@@ -28,7 +28,7 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
       port: 5432,
       database: 'neondb',
       username: 'neondb_owner',
-      password: 'npg_PatYxKO2Z1XT',      
+      password: 'npg_PatYxKO2Z1XT',
       autoLoadEntities: true,
       synchronize: true,
     }),
